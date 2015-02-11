@@ -1,0 +1,45 @@
+﻿
+<nav class="navbar navbar-inverse" ng-controller="NavigationController">
+    <div class="container container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">RoZee Financial</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ 'active' : isActive('/home')}">
+                    <a href="/home">Home</a>
+                </li>
+
+                <li class="dropdown" ng-class="{ 'active' : isActive('/services')}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/accounting_services">Accounting Services</a></li>
+                        <li><a href="/corporate_services">Corporate Services</a></li>
+                        <li><a href="/taxation_services">Taxation</a></li>
+                        <li><a href="/payroll_services">Payroll Services</a></li>
+                        <li><a href="/other_services">Other Services</a></li>
+                    </ul>
+                </li>
+
+                <li ng-class="{ 'active' : isActive('/contact')}">
+                    <a href="/contact">Contact Us</a>
+                </li>
+
+                <li ng-class="{ 'active' : isActive('/faqs')}">
+                    <a href="/faqs">FAQs</a>
+                </li>
+
+                <li ng-class="{ 'active' : isActive('/resources')}">
+                    <a href="/resources">Resources</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
