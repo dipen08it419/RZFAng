@@ -1,24 +1,39 @@
 ﻿<div class="page-header h3">Contact Us</div>
 
-<iframe class="col-sm-6 col-md-6 col-xs-12" frameborder="0" style="border:0; height:400px;" src="https://www.google.com/maps/embed/v1/place?q=RoZee Financial Services Inc., 16A Avenue Southwest, Edmonton, AB&key=AIzaSyCemF3VnHeojYb4lOI_aBM6s2xmOZMAXA0"></iframe>
+<!--<iframe class="col-sm-6 col-md-6 col-xs-12" frameborder="0" style="border:0; height:400px;" src="https://www.google.com/maps/embed/v1/place?q=RoZee Financial Services Inc., 16A Avenue Southwest, Edmonton, AB&key=AIzaSyCemF3VnHeojYb4lOI_aBM6s2xmOZMAXA0"></iframe>-->
 
 <div class="col-sm-6 col-md-6 col-xs-12">
-    <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" placeholder="Enter Name" required ng-required="" />
-    </div>
+    <form novalidate name="contactForm">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" ng-model="name" name="name" class="form-control" placeholder="Enter Name" required />
 
-    <div class="form-group">
-        <label>Email Id</label>
-        <input type="email" class="form-control" placeholder="Enter Email Id" required ng-required="" />
-    </div>
+            <div class="label label-danger" ng-show="contactForm.name.$dirty && contactForm.name.$invalid">
+                <strong class="h5">Name is required.</strong>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label>Message</label>
-        <textarea rows="5" class="form-control" placeholder="Enter Message" required ng-required="" />
-    </div>
+        <div class="form-group">
+            <label>Email Id</label>
+            <input type="email" class="form-control" ng-model="email" name="email" placeholder="Enter Email Id" required />
 
-    <div class="form-group">
-        <button class="btn btn-primary btn-lg">Send Message</button>
-    </div>
+            <div class="label label-danger" ng-show="contactForm.email.$dirty && contactForm.email.$invalid">
+                <span class="h5" ng-show="contactForm.email.$error.email">Invalid Email Id.</span>
+                <span class="h5" ng-show="contactForm.email.$error.required">Email Id is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Message</label>
+            <textarea rows="5" ng-model="message" name="message" class="form-control" placeholder="Enter Message" required />
+
+            <div class="label label-danger" ng-show="contactForm.message.$dirty && contactForm.message.$invalid">
+                <span class="h5">Message is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" ng-disabled="contactForm.name.$invalid || contactForm.email.$invalid || contactForm.message.$invalid" class="btn btn-primary btn-lg" value="Send Message" />
+        </div>
+    </form>
 </div>
